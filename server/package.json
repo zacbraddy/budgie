@@ -25,6 +25,7 @@
   "dependencies": {
     "envalid": "^4.1.4",
     "express": "^4.16.4",
+    "mongoose": "^5.4.6",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0"
   }
