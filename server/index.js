@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { SERVER_PORT } = require('./env');
 const { mongoUri } = require('./config/keys');
+require('./models/User');
 require('./services/passport');
 const authRoutes = require('./routes/auth-routes');
 
