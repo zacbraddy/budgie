@@ -9,12 +9,15 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "server": "nodemon index.js",
+    "client": "yarn --cwd client start ",
+    "dev": "concurrently \"yarn run server\" \"yarn run client\""
   },
   "author": "Zac Braddy",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^5.8.0",
+    "concurrently": "^4.1.0",
+    "eslint": "5.12.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-import": "^2.14.0",
