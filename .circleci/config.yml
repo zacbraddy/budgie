@@ -9,24 +9,26 @@ jobs:
       # specify the version you desire here
       - image: circleci/node:10.15.1
       
-    working_directory: ~/repo/server/client
+    working_directory: ~/server/client
 
     steps:
       - checkout
 
       # Download and cache dependencies
       - restore_cache:
+          paths:
+            - server/client/node_modules
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: yarn install
+      - run: cd server/client; yarn install
 
       - save_cache:
           paths:
-            - node_modules
+            - server/client/node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: yarn test
+      - run: cd server/client; yarn test
