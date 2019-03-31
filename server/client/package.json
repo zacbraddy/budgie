@@ -11,6 +11,11 @@
     "react-scripts": "2.1.5",
     "redux": "^4.0.1"
   },
+  "devDependencies": {
+    "history": "^4.9.0",
+    "http-proxy-middleware": "^0.19.1",
+    "react-testing-library": "^6.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -25,8 +30,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {
-    "http-proxy-middleware": "^0.19.1"
-  }
+  ]
 }
