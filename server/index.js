@@ -21,11 +21,13 @@ authRoutes(app);
 billingRoutes(app);
 
 if (process.env.NODE_ENV === 'production') {
-  console.log('zac ', path.join('__dirname', 'client', 'build'));
-  app.use(express.static(path.join('__dirname', 'client', 'build')));
+  console.log('zac ', path.resolve('__dirname', '..', 'client', 'build'));
+  app.use(express.static(path.resolve('__dirname', '..', 'client', 'build')));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve('__dirname', 'client', 'build', 'index.html'));
+    res.sendFile(
+      path.resolve('__dirname', '..', 'client', 'build', 'index.html')
+    );
   });
 }
 
