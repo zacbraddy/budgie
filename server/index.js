@@ -4,7 +4,7 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const path = require('path');
 const bodyParser = require('body-parser');
-const { SERVER_PORT } = require('./env');
+const { PORT } = require('./env');
 const { mongoUri, cookieKey } = require('./config/keys');
 require('./models/User');
 require('./services/passport');
@@ -21,15 +21,15 @@ authRoutes(app);
 billingRoutes(app);
 
 if (process.env.NODE_ENV === 'production') {
-  console.log('zac ', path.resolve('__dirname', '..', 'client', 'build'));
   app.use(express.static(path.resolve('__dirname', '..', 'client', 'build')));
 
   app.get('*', (req, res) => {
+    console.log('Serving request for fallback route: ', req.originalUrl);
     res.sendFile(
       path.resolve('__dirname', '..', 'client', 'build', 'index.html')
     );
   });
 }
 
-app.listen(SERVER_PORT);
-console.log('Listening on port: ', SERVER_PORT);
+app.listen(PORT);
+console.log('Listening on port: ', PORT);
