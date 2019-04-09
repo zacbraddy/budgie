@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node ./server/index.js",
     "dev": "concurrently \"yarn --cwd server run dev\" \"yarn --cwd client start\"",
-    "heroku-postbuild": "YARN_PRODUCTION=false yarn --cwd client install && yarn --cwd run build",
+    "heroku-postbuild": "YARN_PRODUCTION=false yarn --cwd client install && yarn --cwd client run build",
     "postinstall": "yarn --cwd server install && if [[ ${NODE_ENV} != \"production\" ]]; then yarn --cwd client install; fi"
   },
   "author": "Zac Braddy",
