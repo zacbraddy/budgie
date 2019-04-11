@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "The server side for budgie, my budget program for myself",
   "engines": {
-    "node": "10.15.0"
+    "node": "10.15.2"
   },
   "main": "index.js",
   "scripts": {
