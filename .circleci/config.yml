@@ -58,7 +58,7 @@ workflows:
               only: /^(feature|hotfix)\/.*?$/
       - deploy:
           requires: 
-            - test
+            - build
           filters:
             branches:
               only: develop
