@@ -51,12 +51,14 @@ workflows:
     jobs:
       - build
       - test:
-          requires: build
+          requires: 
+            - build
           filters:
             branches:
               only: /^(feature|hotfix)\/.*?$/
       - deploy:
-          requires: test
+          requires: 
+            - test
           filters:
             branches:
               only: develop
