@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "My budget program for myself",
   "engines": {
-    "node": "10.15.0",
+    "node": "10.15.2",
     "yarn": "1.13.0"
   },
   "scripts": {
     "start": "node ./server/index.js",
     "dev": "concurrently \"yarn --cwd server run dev\" \"yarn --cwd client start\"",
     "heroku-postbuild": "YARN_PRODUCTION=false yarn --cwd client install && yarn --cwd client run build",
-    "postinstall": "yarn --cwd server install && if [[ ${NODE_ENV} != \"production\" ]]; then yarn --cwd client install; fi"
+    "postinstall": "if test \"$NODE_ENV\" != \"production\"; then yarn --cwd client install; fi"
   },
   "author": "Zac Braddy",
   "license": "MIT",
