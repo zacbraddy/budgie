@@ -10,7 +10,7 @@
     "start": "node ./server/index.js",
     "dev": "concurrently \"yarn --cwd server run dev\" \"yarn --cwd client start\"",
     "heroku-postbuild": "YARN_PRODUCTION=false yarn --cwd client install && yarn --cwd client run build",
-    "postinstall": "if test \"$NODE_ENV\" != \"production\"; then yarn --cwd client install; fi"
+    "postinstall": "if test \"$NODE_ENV\" != \"production\"; then yarn --cwd client install; fi && yarn --cwd server install"
   },
   "author": "Zac Braddy",
   "license": "MIT",
