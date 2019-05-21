@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "My budget program for myself",
   "engines": {
-    "node": "10.15.2",
+    "node": "10.15.3",
     "yarn": "1.13.0"
   },
   "scripts": {
