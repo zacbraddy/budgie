@@ -1,6 +1,6 @@
 import React from 'react';
-import BudgetTable from '../budget-table';
+import CurrencyField from '../currency-field';
 
 export default () => {
-  return <BudgetTable />;
+  return <CurrencyField value={991} />;
 };
