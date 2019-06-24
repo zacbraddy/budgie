@@ -5,7 +5,12 @@ import React from 'react';
 
 const roundTo2DP = num => Math.round((num + 0.00001) * 100) / 100;
 
-export default ({ value }) => {
-  console.log({ value });
-  return <h1>£{roundTo2DP(value).toFixed(2)}</h1>;
-};
+export default ({ value, isHeader }) => (
+  <>
+    {isHeader ? (
+      <h5>£{roundTo2DP(value).toFixed(2)}</h5>
+    ) : (
+      <div>£{roundTo2DP(value).toFixed(2)}</div>
+    )}
+  </>
+);

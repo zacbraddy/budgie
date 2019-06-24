@@ -1,0 +1,14 @@
+.summary-line-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  margin-right: 1.5%;
+}
+
+.summary-line-header {
+  margin-right: 4%;
+}
+
+.summary-line-container .summary-line-text {
+  flex-grow: 1;
+}

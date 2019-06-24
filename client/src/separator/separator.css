@@ -1,0 +1,14 @@
+.separator-container {
+  display: flex;
+  height: 0;
+  border: 1px solid #ddd;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 10px;
+}
+
+.separator-text {
+  background-color: #fff;
+  text-decoration: underline;
+  color: #777;
+}

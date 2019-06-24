@@ -1,0 +1,8 @@
+.budget-item-table-container .summary-line-header {
+  margin-right: 2.5%;
+}
+
+.budget-item-table-container .collapsible-body .summary-line-text {
+  margin: 1em 0;
+  font-size: 18px;
+}
