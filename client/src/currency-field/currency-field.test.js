@@ -21,4 +21,10 @@ describe('Currency Field test', () => {
 
     expect(getByText('£1.01')).toBeInTheDocument();
   });
+
+  test('headerText gets passed to a tag', () => {
+    const { getByText } = render(<CurrencyField headerText={`I'm Batman`} />);
+
+    expect(getByText(`I'm Batman`)).toBeInTheDocument();
+  });
 });

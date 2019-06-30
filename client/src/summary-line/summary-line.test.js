@@ -15,10 +15,4 @@ describe('Summary line', () => {
 
     expect(getByText(`I'm Batman`)).toBeInTheDocument();
   });
-
-  test('value gets rendered as part of the component', () => {
-    const { getByText } = render(<SummaryLine value={1} />);
-
-    expect(getByText(/1/)).toBeInTheDocument();
-  });
 });
