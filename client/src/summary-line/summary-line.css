@@ -13,3 +13,17 @@
   flex-grow: 1;
 }
 
+.summary-line-column-container {
+  display: flex;
+}
+
+.summary-line-container.summary-line-header
+.summary-line-column {
+  margin-right: 42px;
+}
+
+.summary-line-container.summary-line-header
+.summary-line-column:last-child {
+  margin-right: 0;
+}
+

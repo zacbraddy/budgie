@@ -1,14 +1,14 @@
 import React from 'react';
 import './summary-line.css';
 
-export default ({ children, text, value, isHeader }) => (
+export default ({ children, text, isHeader }) => (
   <div
     className={`summary-line-container ${
       isHeader ? 'summary-line-header' : ''
     }`}
   >
     {isHeader ? (
-      <h4 className="summary-line-text">{text}</h4>
+      <h5 className="summary-line-text">{text}</h5>
     ) : (
       <div className="summary-line-text">{text}</div>
     )}

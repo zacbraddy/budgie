@@ -5,25 +5,33 @@ import SummaryLineColumn from '../summary-line-column';
 
 import './budget-item-table.css';
 
-export default ({ header, headerValue }) => (
-  <Collapsible className="budget-item-table-container">
-    <CollapsibleItem
-      header={
-        <SummaryLine text={header} value={headerValue} isHeader>
-          <SummaryLineColumn value={991} headerText="Estimated" isInHeader />
-          <SummaryLineColumn value={991} headerText="Actual" isInHeader />
-        </SummaryLine>
-      }
-      expanded
-    >
-      <SummaryLine text="Salary">
-        <SummaryLineColumn value={991} />
-        <SummaryLineColumn value={991} />
-      </SummaryLine>
-      <SummaryLine text="Random Income">
-        <SummaryLineColumn value={991} />
-        <SummaryLineColumn value={991} />
-      </SummaryLine>
-    </CollapsibleItem>
-  </Collapsible>
-);
+export default ({ headerText, lines, totalEstimate, totalActual }) => {
+  return (
+    <Collapsible className="budget-item-table-container">
+      <CollapsibleItem
+        header={
+          <SummaryLine text={headerText} isHeader>
+            <SummaryLineColumn
+              value={totalEstimate}
+              headerText="Estimated"
+              isInHeader
+            />
+            <SummaryLineColumn
+              value={totalActual}
+              headerText="Actual"
+              isInHeader
+            />
+          </SummaryLine>
+        }
+        expanded
+      >
+        {lines.map(line => (
+          <SummaryLine text={line.text}>
+            <SummaryLineColumn value={line.estimated} />
+            <SummaryLineColumn value={line.actual} />
+          </SummaryLine>
+        ))}
+      </CollapsibleItem>
+    </Collapsible>
+  );
+};
