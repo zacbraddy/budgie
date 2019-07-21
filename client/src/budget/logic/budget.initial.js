@@ -1,4 +1,4 @@
-export const initialState = {
+export default {
   beginningOfMonth: 990,
   totalSavingsLastMonth: 20,
   income: {
@@ -69,11 +69,4 @@ export const initialState = {
       },
     ],
   },
-};
-
-export const reducer = (state, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
 };

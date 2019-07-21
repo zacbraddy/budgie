@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "materialize-css": "^1.0.0",
+    "ramda": "^0.26.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-materialize": "^3.2.2",

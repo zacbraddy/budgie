@@ -3,7 +3,8 @@ import SummaryLine from '../summary-line';
 import SummaryLineColumn from '../summary-line-column';
 import Separator from '../separator';
 import BudgetItemTable from '../budget-item-table';
-import { reducer, initialState } from './reducer';
+import reducer from './logic';
+import initialState from './logic/budget.initial';
 import './budget.css';
 
 export default () => {
