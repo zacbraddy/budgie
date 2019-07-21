@@ -5,7 +5,7 @@ import SummaryLineColumn from '../summary-line-column';
 
 import './budget-item-table.css';
 
-export default ({ headerText, lines, totalEstimate, totalActual }) => {
+export default ({ headerText, lines = [], totalEstimate, totalActual }) => {
   return (
     <Collapsible className="budget-item-table-container">
       <CollapsibleItem
@@ -25,8 +25,8 @@ export default ({ headerText, lines, totalEstimate, totalActual }) => {
         }
         expanded
       >
-        {lines.map(line => (
-          <SummaryLine text={line.text}>
+        {lines.map((line, idx) => (
+          <SummaryLine key={idx} text={line.text}>
             <SummaryLineColumn value={line.estimated} />
             <SummaryLineColumn value={line.actual} />
           </SummaryLine>

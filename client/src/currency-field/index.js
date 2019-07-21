@@ -1,10 +1,7 @@
 import React from 'react';
+import roundTo2DP from '../common/round-to-2-dp';
+import EditableCurrencyField from '../editable-currency-field';
 import './currency-field.css';
-
-// Don't ask me about this crazyiness ask
-// https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary#comment28521418_11832950
-
-const roundTo2DP = num => Math.round((num + 0.00001) * 100) / 100;
 
 export default ({ value, headerText, isInHeader }) => (
   <div className="currency-field-container">
@@ -12,7 +9,7 @@ export default ({ value, headerText, isInHeader }) => (
     {isInHeader ? (
       <h5>£{roundTo2DP(value).toFixed(2)}</h5>
     ) : (
-      <div>£{roundTo2DP(value).toFixed(2)}</div>
+      <EditableCurrencyField value={value} />
     )}
   </div>
 );

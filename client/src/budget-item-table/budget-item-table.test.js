@@ -10,15 +10,37 @@ describe('BudgetItemTable test', () => {
     expect(<BudgetItemTable />).toBeDefined();
   });
 
-  test('header gets rendered as part of the component', () => {
-    const { getByText } = render(<BudgetItemTable header={`I'm Batman`} />);
+  test('headerText gets rendered as part of the component', () => {
+    const { getByText } = render(<BudgetItemTable headerText={`I'm Batman`} />);
 
     expect(getByText(`I'm Batman`)).toBeInTheDocument();
   });
 
-  test('headervalue gets rendered as part of the component', () => {
-    const { getByText } = render(<BudgetItemTable headerValue={1} />);
+  test('totalEstimate gets rendered as part of the component', () => {
+    const { getByText } = render(<BudgetItemTable totalEstimate={1} />);
 
     expect(getByText(/1/)).toBeInTheDocument();
+  });
+
+  test('totalActual gets rendered as part of the component', () => {
+    const { getByText } = render(<BudgetItemTable totalActual={1} />);
+
+    expect(getByText(/1/)).toBeInTheDocument();
+  });
+
+  test('lines gets rendered as part of the component', () => {
+    const mockLines = [
+      {
+        text: `I'm Batman`,
+        estimated: 1,
+        actual: 99,
+      },
+    ];
+
+    const { getByText } = render(<BudgetItemTable lines={mockLines} />);
+
+    expect(getByText(/I'm Batman/)).toBeInTheDocument();
+    expect(getByText(/1/)).toBeInTheDocument();
+    expect(getByText(/99/)).toBeInTheDocument();
   });
 });
