@@ -17,9 +17,11 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^1.1.0",
     "history": "^4.9.0",
     "http-proxy-middleware": "^0.19.1",
     "jest-dom": "^3.2.2",
+    "react-test-renderer": "^16.8.6",
     "react-testing-library": "^6.0.0"
   },
   "scripts": {

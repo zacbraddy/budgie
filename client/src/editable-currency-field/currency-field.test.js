@@ -1,5 +1,5 @@
 import React from 'react';
-import { cleanup, fireEvent, render } from 'react-testing-library';
+import { cleanup, fireEvent, render, wait } from 'react-testing-library';
 import EditableCurrencyField from './index.js';
 import 'jest-dom/extend-expect';
 
@@ -30,5 +30,17 @@ describe('Editable currency fields', () => {
     fireEvent.click(getByText('£1.00'));
 
     expect(getByDisplayValue(/1/)).toBeInTheDocument();
+  });
+
+  test('an input box to be focused after a click event', async () => {
+    const { getByText, getByDisplayValue } = render(
+      <EditableCurrencyField value={1} />
+    );
+
+    fireEvent.click(getByText('£1.00'));
+
+    await wait(() =>
+      expect(document.activeElement).toEqual(getByDisplayValue(/1/))
+    );
   });
 });

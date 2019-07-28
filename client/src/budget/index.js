@@ -3,12 +3,11 @@ import SummaryLine from '../summary-line';
 import SummaryLineColumn from '../summary-line-column';
 import Separator from '../separator';
 import BudgetItemTable from '../budget-item-table';
-import reducer from './logic';
-import initialState from './logic/budget.initial';
+import useBudget from './useBudget';
 import './budget.css';
 
 export default () => {
-  const [state] = useReducer(reducer, initialState);
+  const [state] = useBudget();
   const calculateTotals = lines => {
     let totalEstimate = 0;
     let totalActual = 0;
