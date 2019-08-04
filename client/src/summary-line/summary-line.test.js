@@ -1,7 +1,7 @@
 import React from 'react';
-import { cleanup, render } from 'react-testing-library';
+import { cleanup, render } from '@testing-library/react';
 import SummaryLine from './index.js';
-import 'jest-dom/extend-expect';
+import '@testing-library/jest-dom/extend-expect';
 
 describe('Summary line', () => {
   afterEach(cleanup);

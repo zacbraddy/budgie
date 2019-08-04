@@ -1,7 +1,7 @@
 import React from 'react';
-import { cleanup, fireEvent, render, wait } from 'react-testing-library';
+import { cleanup, fireEvent, render, wait } from '@testing-library/react';
 import EditableCurrencyField from './index.js';
-import 'jest-dom/extend-expect';
+import '@testing-library/jest-dom/extend-expect';
 
 describe('Editable currency fields', () => {
   afterEach(cleanup);

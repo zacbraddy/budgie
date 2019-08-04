@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-testing-library';
+import { render } from '@testing-library/react';
 import { createStore } from 'redux';
 import { createMemoryHistory } from 'history';
 import { Provider } from 'react-redux';
@@ -11,7 +11,7 @@ import reducers from '../../reducers';
 // you can provide initialState or the entire store that the ui is rendered with
 export const renderWithRedux = (
   ui,
-  { initialState, store = createStore(reducers, initialState) } = {},
+  { initialState, store = createStore(reducers, initialState) } = {}
 ) => {
   return {
     ...render(<Provider store={store}>{ui}</Provider>),
@@ -27,7 +27,7 @@ export const renderWithReactRouter = (
   {
     route = '/',
     history = createMemoryHistory({ initialEntries: [route] }),
-  } = {},
+  } = {}
 ) => {
   return {
     ...render(<Router history={history}>{ui}</Router>),
@@ -46,7 +46,7 @@ export const renderWithReactRouterAndRedux = ui => ({
     ...render(
       <Provider store={store}>
         <Router history={history}>{ui}</Router>,
-      </Provider>,
+      </Provider>
     ),
     history,
     store,

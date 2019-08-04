@@ -1,7 +1,7 @@
 import React from 'react';
-import { cleanup, render } from 'react-testing-library';
+import { cleanup, render } from '@testing-library/react';
 import BudgetItemTable from './index.js';
-import 'jest-dom/extend-expect';
+import '@testing-library/jest-dom/extend-expect';
 
 describe('BudgetItemTable test', () => {
   afterEach(cleanup);

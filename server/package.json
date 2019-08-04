@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "The server side for budgie, my budget program for myself",
   "engines": {
-    "node": "10.15.3"
+    "node": "10.16.1"
   },
   "main": "index.js",
   "scripts": {
@@ -13,22 +13,22 @@
   "author": "Zac Braddy",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "5.12.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-config-prettier": "^3.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-prettier": "^3.0.0",
-    "nodemon": "^1.18.11",
-    "prettier": "^1.15.1"
+    "eslint": "6.1.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "nodemon": "^1.19.1",
+    "prettier": "^1.18.2"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.19.0",
     "cookie-session": "^2.0.0-beta.3",
-    "envalid": "^4.1.4",
-    "express": "^4.16.4",
-    "mongoose": "^5.4.6",
+    "envalid": "^5.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.8",
     "passport": "^0.4.0",
-    "passport-google-oauth20": "^1.0.0",
-    "stripe": "^6.28.0"
+    "passport-google-oauth20": "^2.0.0",
+    "stripe": "^7.6.0"
   }
 }

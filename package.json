@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "My budget program for myself",
   "engines": {
-    "node": "10.15.3",
+    "node": "10.16.1",
     "yarn": "1.13.0"
   },
   "scripts": {
@@ -15,7 +15,7 @@
   "author": "Zac Braddy",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^4.1.0"
+    "concurrently": "^4.1.1"
   },
   "dependencies": {}
 }
