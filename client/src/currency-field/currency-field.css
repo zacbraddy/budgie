@@ -1,0 +1,9 @@
+.currency-field-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.currency-field-header {
+  color: #999;
+}
