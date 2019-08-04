@@ -1,0 +1,21 @@
+{
+  "name": "budgie",
+  "version": "1.0.0",
+  "description": "My budget program for myself",
+  "engines": {
+    "node": "10.16.1",
+    "yarn": "1.17.3"
+  },
+  "scripts": {
+    "start": "node ./server/index.js",
+    "dev": "concurrently \"yarn --cwd server run dev\" \"yarn --cwd client start\"",
+    "heroku-postbuild": "YARN_PRODUCTION=false yarn --cwd client install && yarn --cwd client run build",
+    "postinstall": "if test \"$NODE_ENV\" != \"production\"; then yarn --cwd client install; fi && yarn --cwd server install"
+  },
+  "author": "Zac Braddy",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^4.1.1"
+  },
+  "dependencies": {}
+}

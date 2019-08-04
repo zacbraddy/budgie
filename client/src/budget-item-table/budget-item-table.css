@@ -1,0 +1,34 @@
+.budget-item-table-container .summary-line-header {
+  margin-right: 25px;
+}
+
+.budget-item-table-container .collapsible-body .summary-line-text {
+  margin: 1em 0;
+  font-size: 18px;
+}
+
+.budget-item-table-container
+.summary-line-container.summary-line-header
+.summary-line-column-container {
+  display: flex;
+}
+
+.budget-item-table-container
+.collapsible-body
+.summary-line-column-container {
+  display: flex;
+}
+
+.budget-item-table-container
+.collapsible-body
+.summary-line-column-container
+.summary-line-column {
+  margin-right: 75px
+}
+
+.budget-item-table-container
+.collapsible-body
+.summary-line-column-container
+.summary-line-column:last-child {
+    margin-right: 0;
+}
