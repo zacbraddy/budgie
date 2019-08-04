@@ -4,7 +4,7 @@
   "description": "My budget program for myself",
   "engines": {
     "node": "10.16.1",
-    "yarn": "1.13.0"
+    "yarn": "1.17.3"
   },
   "scripts": {
     "start": "node ./server/index.js",
