@@ -8,8 +8,9 @@ import reduxThunk from 'redux-thunk';
 
 import App from './app';
 import reducers from './reducers';
+import budgetInitialState from './budget/budget.initial';
 
-const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+const store = createStore(reducers, { ...budgetInitialState }, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
   <Provider store={store}>

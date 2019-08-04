@@ -1,8 +1,8 @@
 import React from 'react';
-import Budget from './index';
+import { BudgetComponent } from './index';
 
 describe('Budget tests', () => {
   test('renders without crashing', () => {
-    expect(<Budget />).toBeDefined();
+    expect(<BudgetComponent />).toBeDefined();
   });
 });
