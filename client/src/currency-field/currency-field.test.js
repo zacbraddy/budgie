@@ -1,7 +1,8 @@
 import React from 'react';
-import { cleanup, render } from '@testing-library/react';
+import { cleanup } from '@testing-library/react';
 import CurrencyField from './index.js';
 import '@testing-library/jest-dom/extend-expect';
+import { renderWithRedux } from '../test/utils';
 
 describe('Currency Field test', () => {
   afterEach(cleanup);
@@ -11,19 +12,21 @@ describe('Currency Field test', () => {
   });
 
   test('value gets passed to the tag', () => {
-    const { getByText } = render(<CurrencyField value={1} />);
+    const { getByText } = renderWithRedux(<CurrencyField value={1} />);
 
     expect(getByText('£1.00')).toBeInTheDocument();
   });
 
   test('value gets rounded to two decimal places like good currency values should', () => {
-    const { getByText } = render(<CurrencyField value={1.006} />);
+    const { getByText } = renderWithRedux(<CurrencyField value={1.006} />);
 
     expect(getByText('£1.01')).toBeInTheDocument();
   });
 
   test('headerText gets passed to a tag', () => {
-    const { getByText } = render(<CurrencyField headerText={`I'm Batman`} />);
+    const { getByText } = renderWithRedux(
+      <CurrencyField headerText={`I'm Batman`} />
+    );
 
     expect(getByText(`I'm Batman`)).toBeInTheDocument();
   });

@@ -1,10 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import roundTo2DP from '../common/round-to-2-dp';
-import { changeBudgetItemTableLineEstimate } from '../budget/actions';
 
-export const EditableCurrencyFieldComponent = ({ value, dispatch }) => {
+export default ({
+  value,
+  budgetTableName,
+  budgetTableLineId,
+  dispatch,
+  changeBudgetLineItem,
+}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editingValue, setEditingValue] = useState('');
   const inputEl = useRef(null);
@@ -17,12 +20,17 @@ export const EditableCurrencyFieldComponent = ({ value, dispatch }) => {
   }, [isEditing, value]);
 
   const onEditingComplete = () => {
+    changeBudgetLineItem(
+      budgetTableLineId,
+      budgetTableName,
+      Number(editingValue)
+    );
     setIsEditing(!isEditing);
   };
 
   return isEditing ? (
     <input
-      type="text"
+      type="number"
       onBlur={onEditingComplete}
       onChange={ev => setEditingValue(ev.target.value)}
       ref={inputEl}
@@ -34,11 +42,3 @@ export const EditableCurrencyFieldComponent = ({ value, dispatch }) => {
     </div>
   );
 };
-
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({ changeBudgetItemTableLineEstimate }, dispatch);
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(EditableCurrencyFieldComponent);

@@ -1,7 +1,8 @@
 import React from 'react';
-import { cleanup, render } from '@testing-library/react';
+import { cleanup } from '@testing-library/react';
 import SummaryLineColumn from './index.js';
 import '@testing-library/jest-dom/extend-expect';
+import { renderWithRedux } from '../test/utils';
 
 describe('Summary line column', () => {
   afterEach(cleanup);
@@ -11,13 +12,13 @@ describe('Summary line column', () => {
   });
 
   test('value gets rendered as part of the component', () => {
-    const { getByText } = render(<SummaryLineColumn value={1} />);
+    const { getByText } = renderWithRedux(<SummaryLineColumn value={1} />);
 
     expect(getByText(/1/)).toBeInTheDocument();
   });
 
   test('headerText gets rendered as part of the component', () => {
-    const { getByText } = render(
+    const { getByText } = renderWithRedux(
       <SummaryLineColumn headerText={`I'm Batman`} />
     );
 
