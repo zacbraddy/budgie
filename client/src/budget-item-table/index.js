@@ -16,6 +16,7 @@ export const BudgetItemTableComponent = ({
   totalEstimate,
   totalActual,
   changeBudgetItemTableLineEstimate,
+  changeBudgetItemTableLineActual,
 }) => {
   return (
     <Collapsible className="budget-item-table-container">
@@ -31,7 +32,7 @@ export const BudgetItemTableComponent = ({
             </SummaryLineColumn>
             <SummaryLineColumn>
               <CurrencyField
-                value={totalEstimate}
+                value={totalActual}
                 headerText="Actual"
                 isInHeader
               />
@@ -51,7 +52,12 @@ export const BudgetItemTableComponent = ({
               />
             </SummaryLineColumn>
             <SummaryLineColumn>
-              <CurrencyField value={line.actual} />
+              <CurrencyField
+                value={line.actual}
+                budgetTableName={budgetTableName}
+                budgetTableLineId={line.id}
+                changeBudgetLineItem={changeBudgetItemTableLineActual}
+              />
             </SummaryLineColumn>
           </SummaryLine>
         ))}

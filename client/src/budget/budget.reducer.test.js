@@ -1,6 +1,9 @@
 import { find } from 'ramda';
 import budgetReducer from './budget.reducer';
-import { changeBudgetItemTableLineEstimate } from './actions';
+import {
+  changeBudgetItemTableLineActual,
+  changeBudgetItemTableLineEstimate,
+} from './actions';
 import { INCOME } from './dictionary';
 import initialState from './budget.initial';
 
@@ -11,13 +14,24 @@ describe('Budget reducer', () => {
     expect(newState).toStrictEqual(initialState);
   });
 
-  test('that I can update a line in a category', () => {
+  test('that I can update a line in a category estimate', () => {
     const newState = budgetReducer(
       initialState,
       changeBudgetItemTableLineEstimate(1, INCOME, 9001)
     );
 
     expect(find(line => line.id === 1, newState.income.lines).estimated).toBe(
+      9001
+    );
+  });
+
+  test('that I can update a line in a category actual', () => {
+    const newState = budgetReducer(
+      initialState,
+      changeBudgetItemTableLineActual(1, INCOME, 9001)
+    );
+
+    expect(find(line => line.id === 1, newState.income.lines).actual).toBe(
       9001
     );
   });
