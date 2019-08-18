@@ -7,7 +7,7 @@ describe('Editable currency fields', () => {
   afterEach(cleanup);
 
   test('that it renders without crashing', () => {
-    expect(<EditableCurrencyField />).toBeDefined();
+    expect(render(<EditableCurrencyField />)).toBeDefined();
   });
 
   test('value gets passed to the tag', () => {
@@ -17,7 +17,9 @@ describe('Editable currency fields', () => {
   });
 
   test('value gets rounded to two decimal places like good currency values should', () => {
-    const { getByText } = render(<EditableCurrencyField value={1.006} />);
+    const { getByText } = render(
+      <EditableCurrencyField value={1.006} />
+    );
 
     expect(getByText('£1.01')).toBeInTheDocument();
   });
