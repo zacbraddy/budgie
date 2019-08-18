@@ -23,7 +23,8 @@
     "history": "^4.9.0",
     "http-proxy-middleware": "^0.19.1",
     "jest-dom": "^4.0.0",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
+    "redux-devtools-extension": "^2.13.8"
   },
   "scripts": {
     "start": "react-scripts start",

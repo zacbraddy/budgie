@@ -1,7 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import roundTo2DP from '../common/round-to-2-dp';
 
-export default ({ value, dispatch }) => {
+export default ({
+  value,
+  budgetTableName,
+  budgetTableLineId,
+  dispatch,
+  changeBudgetLineItem,
+}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editingValue, setEditingValue] = useState('');
   const inputEl = useRef(null);
@@ -11,15 +17,20 @@ export default ({ value, dispatch }) => {
       setEditingValue(value);
       inputEl.current.focus();
     }
-  }, [isEditing]);
+  }, [isEditing, value]);
 
   const onEditingComplete = () => {
+    changeBudgetLineItem(
+      budgetTableLineId,
+      budgetTableName,
+      Number(editingValue)
+    );
     setIsEditing(!isEditing);
   };
 
   return isEditing ? (
     <input
-      type="text"
+      type="number"
       onBlur={onEditingComplete}
       onChange={ev => setEditingValue(ev.target.value)}
       ref={inputEl}
