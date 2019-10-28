@@ -10,6 +10,7 @@ import reduxThunk from 'redux-thunk';
 import App from './app';
 import reducers from './reducers';
 import budgetInitialState from './budget/budget.initial';
+import Firebase, { FirebaseContext } from './firebase-auth';
 
 const store = createStore(
   reducers,
@@ -18,8 +19,10 @@ const store = createStore(
 );
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <FirebaseContext.Provider value={new Firebase()}>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </FirebaseContext.Provider>,
   document.querySelector('#root')
 );

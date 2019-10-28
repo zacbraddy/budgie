@@ -12,6 +12,7 @@ passport.deserializeUser(async (id, done) => {
   done(null, user);
 });
 
+console.log('zac', { googleClientId, googleClientSecret });
 passport.use(
   new GoogleStrategy(
     {
