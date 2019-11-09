@@ -1,5 +1,6 @@
 import app from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/analytics';
 
 const config = {
   apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
@@ -15,15 +16,30 @@ const config = {
 class Firebase {
   constructor() {
     app.initializeApp(config);
-    this.provider = new firebase.auth.GoogleAuthProvider();
+    this.analytics = new app.analytics();
+    this.provider = new app.auth.GoogleAuthProvider();
     this.provider.addScope('profile');
 
     this.auth = app.auth();
+    this.doSignout = this.doSignout.bind(this);
+    this.signInWithPopup = this.signInWithPopup.bind(this);
+
+    app.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        this.userInfo = user;
+      } else {
+        this.userInfo = undefined;
+      }
+    });
   }
 
   async signInWithPopup() {
     this.userInfo = await this.auth.signInWithPopup(this.provider);
-    console.log({ userInfo: this.userInfo });
+  }
+
+  async doSignout() {
+    this.auth.signOut();
+    this.userInfo = undefined;
   }
 }
 

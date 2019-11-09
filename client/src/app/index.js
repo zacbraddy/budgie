@@ -10,10 +10,6 @@ const Dashboard = () => <h2>Dashboard</h2>;
 const BudgetNew = () => <h2>BudgetNew</h2>;
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchUser();
-  }
-
   render() {
     return (
       <div>

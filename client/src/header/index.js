@@ -1,32 +1,28 @@
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Payment from '../payment';
+import { FirebaseContext } from '../firebase-auth';
+import * as authActions from '../auth/actions';
 
 class Header extends Component {
-  renderContent() {
-    switch (this.props.auth) {
-      case null:
-        return;
-      case false:
-        return (
-          <li>
-            <a href="/auth/google">Login with Google</a>
-          </li>
-        );
-      default:
-        return [
-          <li key="1">
-            <Payment />
-          </li>,
-          <li key="2" style={{ margin: '0 10px' }}>
-            Credits: {this.props.auth.credits}
-          </li>,
-          <li key="3">
-            <a href="/api/logout">Logout</a>
-          </li>,
-        ];
-    }
+  renderContent(firebase) {
+    if (!firebase.userInfo)
+      return (
+        <li>
+          <button onClick={() => this.props.actions.fetchUser(firebase)}>
+            Login with Google
+          </button>
+        </li>
+      );
+
+    return (
+      <li>
+        <button onClick={() => this.props.actions.signOut(firebase)}>
+          Logout
+        </button>
+      </li>
+    );
   }
 
   render() {
@@ -37,7 +33,9 @@ class Header extends Component {
             Budgie
           </Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            {this.renderContent()}
+            <FirebaseContext.Consumer>
+              {this.renderContent.bind(this)}
+            </FirebaseContext.Consumer>
           </ul>
         </div>
       </nav>
@@ -51,5 +49,9 @@ const mapStateToProps = ({ auth }) => ({
 
 export default connect(
   mapStateToProps,
-  null
+  dispatch => ({
+    actions: {
+      ...bindActionCreators(authActions, dispatch),
+    },
+  })
 )(Header);
