@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as authActions from '../auth/actions';
 import Header from '../header';
 import Landing from '../landing';
 import Budget from '../budget';
@@ -26,7 +25,4 @@ class App extends Component {
   }
 }
 
-export default connect(
-  null,
-  authActions
-)(App);
+export default connect()(App);
