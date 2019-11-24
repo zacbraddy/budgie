@@ -9,14 +9,7 @@ const Header = () => {
   const auth = useSelector(state => state.firebase.auth);
 
   const renderContent = () => {
-    if (isLoaded(auth) && isEmpty(auth))
-      return (
-        <li>
-          <button onClick={() => firebase.login({ provider: 'google' })}>
-            Login with Google
-          </button>
-        </li>
-      );
+    if (isLoaded(auth) && isEmpty(auth)) return null;
 
     return (
       <li>
