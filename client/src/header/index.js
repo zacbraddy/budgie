@@ -1,55 +1,38 @@
 import { connect } from 'react-redux';
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Payment from '../payment';
+import { useSelector } from 'react-redux';
+import { useFirebase, isLoaded, isEmpty } from 'react-redux-firebase';
 
-class Header extends Component {
-  renderContent() {
-    switch (this.props.auth) {
-      case null:
-        return;
-      case false:
-        return (
-          <li>
-            <a href="/auth/google">Login with Google</a>
-          </li>
-        );
-      default:
-        return [
-          <li key="1">
-            <Payment />
-          </li>,
-          <li key="2" style={{ margin: '0 10px' }}>
-            Credits: {this.props.auth.credits}
-          </li>,
-          <li key="3">
-            <a href="/api/logout">Logout</a>
-          </li>,
-        ];
-    }
-  }
+const Header = () => {
+  const firebase = useFirebase();
+  const auth = useSelector(state => state.firebase.auth);
 
-  render() {
+  const renderContent = () => {
+    if (isLoaded(auth) && isEmpty(auth)) return null;
+
     return (
-      <nav>
-        <div className="nav-wrapper">
-          <Link to={this.props.auth ? '/budget' : '/'} className="brand-logo">
-            Budgie
-          </Link>
-          <ul id="nav-mobile" className="right hide-on-med-and-down">
-            {this.renderContent()}
-          </ul>
-        </div>
-      </nav>
+      <li>
+        <button onClick={() => firebase.logout()}>Logout</button>
+      </li>
     );
-  }
-}
+  };
 
-const mapStateToProps = ({ auth }) => ({
-  auth,
-});
+  return (
+    <nav>
+      <div className="nav-wrapper">
+        <Link
+          to={!isLoaded || !isEmpty(auth) ? '/budget' : '/'}
+          className="brand-logo"
+        >
+          Budgie
+        </Link>
+        <ul id="nav-mobile" className="right hide-on-med-and-down">
+          {renderContent()}
+        </ul>
+      </div>
+    </nav>
+  );
+};
 
-export default connect(
-  mapStateToProps,
-  null
-)(Header);
+export default connect()(Header);

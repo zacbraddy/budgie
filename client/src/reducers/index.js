@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import auth from './auth-reducers';
 import budget from '../budget/budget.reducer';
+import { firebaseReducer } from 'react-redux-firebase';
 
 export default combineReducers({
-  auth,
+  firebase: firebaseReducer,
   budget,
 });
